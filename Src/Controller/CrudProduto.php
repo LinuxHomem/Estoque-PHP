@@ -48,24 +48,26 @@
     }else{
       echo "Exibindo Tudo.";
     }
-    echo "<form action='$server' method='post'><table class='striped'><thead><tr><th>ID</th><th>Nome</th><th>Valor</th><th>Quantidade</th></tr></thead><tbody>";
+    echo "<table class='striped centered'><thead><tr><th>ID</th><th>Nome</th><th>Valor</th><th>Quantidade</th></tr></thead><tbody>";
     for($i=0;$i < $arr[0];$i++){
       $values = $arr[1][$i];
       $id = $values['id'];
       $nome = $values['nome'];
       $valor = $values['valor'];
       $qtd = $values['quantidade'];
-      echo "<tr><td>$id</td><td>$nome</td><td>$valor</td><td>$qtd</td>";
+      echo "<tr><td>$id</td><td id='$id nome' value='$nome'>$nome</td><td id='$id valor' value='$valor'>$valor</td><td id='$id qtd' value='$qtd'>$qtd</td>";
 
-      echo "<td><button type='submit' value='$id' name='btn_edit'><a
+      echo "<td><button onclick='edit(this.value);' value='$id' name='btn_edit1'><a
       class='btn-floating btn-small waves-effect waves-light red'>
       <i class='material-icons'>edit</i></a></button>";
 
+      echo "<form action='$server' method='post'>";
       echo "<button type='submit' value='$id' name='btn_delete'><a
       class='btn-floating btn-small waves-effect waves-light red'>
       <i class='material-icons'>delete</i></a></button></td></tr>";
+      echo "</form>";
     }
-    echo "</tbody></table></form>";
+    echo "</tbody></table>";
   }
   // read section
 

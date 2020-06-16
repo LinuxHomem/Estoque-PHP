@@ -43,14 +43,14 @@
               </select>
 
               <div class="row">
-                <div class="col">
+                <div class="col s6 center">
                   <button class="btn waves-effect waves-light red" type="submit" name="btn_search">
                     Pesquisar
                   </button>
                 </div>
               </form>
 
-              <div class="col">
+              <div class="col s6 center">
                 <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
                   <button class="btn waves-effect waves-light red" type="submit" name="btn_searchAll">
                     Exibir Tudo
@@ -67,12 +67,12 @@
             Adicionar Produto
             <span class="badge"></span>
           </div>
-          
+
           <div class="collapsible-body collap">
             <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
               <div class="row">
 
-                <div class="col l3 s12">
+                <div class="col l4 s12">
                   <input name="0" placeholder="Nome" required>
                 </div>
 
@@ -84,8 +84,42 @@
                   <input name="2" placeholder="Quantidade" required>
                 </div>
 
-                <div class="col l2 s12">
+                <div class="col l2 s12 center">
                   <button type="submit" name="btn_add"><a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">edit</i>
+            Editar Produto
+            <span class="badge"></span>
+          </div>
+
+          <div id="edit_collap" class="collapsible-body collap">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+              <div class="row">
+
+                <div class="col l2 s12">
+                  <input id="id" name="0" placeholder="ID" required>
+                </div>
+
+                <div class="col l3 s12">
+                  <input id="name" name="1" placeholder="Nome" required>
+                </div>
+
+                <div class="col l3 s12">
+                  <input id="value" name="2" placeholder="Valor" required>
+                </div>
+
+                <div class="col l2 s12">
+                  <input id="quantity" name="3" placeholder="Quantidade" required>
+                </div>
+
+                <div class="col l2 s12 center">
+                  <button type="submit" name="btn_edit"><a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">edit</i></a></button>
                 </div>
               </div>
             </form>
@@ -117,8 +151,10 @@
     <!-- Jquery Js -->
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script><style type="text/css"></style>
     <!-- Materialize JS -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <!-- Init Materialize JS -->
     <script src="../Controller/Init.js"></script>
+    <!-- Collap Button -->
+    <script src="../Controller/Collap.js"></script>
   </body>
 </html>
