@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "lemon";
+  src: url("../../../Fonts/LemonMilk.otf");
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff8080;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff4d4d;
+}
+
+button {
+  background: transparent;
+  border: none !important;
+}
+button:active{
+  background: transparent;
+}
+
+.title{
+  font-family: lemon;
+  font-size: 100px;
+  margin: 0px;
+  text-align: center;
+}
+
+.collap{
+  padding: 25px;
+}
+
+table{
+  margin-bottom: 50px;
+}
