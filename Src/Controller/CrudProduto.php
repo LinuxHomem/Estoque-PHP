@@ -48,7 +48,7 @@
     }else{
       echo "Exibindo Tudo.";
     }
-    echo "<table class='striped centered'><thead><tr><th>ID</th><th>Nome</th><th>Valor</th><th>Quantidade</th></tr></thead><tbody>";
+    echo "<form action='$server' method='post'><table class='striped centered'><thead><tr><th>ID</th><th>Nome</th><th>Valor</th><th>Quantidade</th></tr></thead><tbody>";
     for($i=0;$i < $arr[0];$i++){
       $values = $arr[1][$i];
       $id = $values['id'];
@@ -57,23 +57,26 @@
       $qtd = $values['quantidade'];
       echo "<tr><td>$id</td><td id='$id nome' value='$nome'>$nome</td><td id='$id valor' value='$valor'>$valor</td><td id='$id qtd' value='$qtd'>$qtd</td>";
 
-      echo "<td><button onclick='edit(this.value);' value='$id' name='btn_edit1'><a
-      class='btn-floating btn-small waves-effect waves-light red'>
+      echo "<td><button type='button' onclick='edit(this.value);' value='$id' name='btn_edit1'><a
+      class='btn-floating btn-small waves-effect waves-light orange'>
       <i class='material-icons'>edit</i></a></button>";
 
-      echo "<form action='$server' method='post'>";
       echo "<button type='submit' value='$id' name='btn_delete'><a
       class='btn-floating btn-small waves-effect waves-light red'>
       <i class='material-icons'>delete</i></a></button></td></tr>";
-      echo "</form>";
     }
-    echo "</tbody></table>";
+    echo "</tbody></table></form>";
   }
   // read section
 
   // update section
-  function update(){
-
+  function update($arr){
+    array_pop($arr);
+    $cArr = clear($arr);
+    $cArr[] = $cArr[0];
+    array_shift($cArr);
+    $instance = new \CrudProduto();
+    return $instance->update($cArr);
   }
   // update section
 

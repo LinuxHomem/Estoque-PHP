@@ -31,8 +31,21 @@
     }
     // read section
 
-    public function update(){
+    public function update($arr){
+      $sql = "UPDATE `loja`.`produto` SET nome = ?, valor = ?, quantidade = ? WHERE id = ?";
+      $stmt = Conexao::getConn()->prepare($sql);
 
+      $count = 1;
+      foreach ($arr as $value) {
+        $stmt->bindValue($count,$value);
+        $count++;
+      }
+
+      if($stmt->execute() === false){
+        return "Falha ao Editar o Produto. <br>";
+      }else{
+        return array("Produto Editado. <br>",$arr[3]);
+      }
     }
 
     public function delete($id){

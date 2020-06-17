@@ -34,7 +34,11 @@
 
           <div class="collapsible-body collap">
             <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-              <input name="valor" placeholder="Valor" required>
+              <div class="input-field col s12">
+                <input type="text" id='vl' name="valor" required>
+                <label for="vl">Valor</label>
+              </div>
+
 
               <select required name="tipo">
                 <option value="">Tipo de Pesquisa...</option>
@@ -44,7 +48,7 @@
 
               <div class="row">
                 <div class="col s6 center">
-                  <button class="btn waves-effect waves-light red" type="submit" name="btn_search">
+                  <button class="btn waves-effect waves-light blue" type="submit" name="btn_search">
                     Pesquisar
                   </button>
                 </div>
@@ -52,7 +56,7 @@
 
               <div class="col s6 center">
                 <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-                  <button class="btn waves-effect waves-light red" type="submit" name="btn_searchAll">
+                  <button class="btn waves-effect waves-light blue" type="submit" name="btn_searchAll">
                     Exibir Tudo
                   </button>
                 </form>
@@ -72,20 +76,23 @@
             <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
               <div class="row">
 
-                <div class="col l4 s12">
-                  <input name="0" placeholder="Nome" required>
+                <div class="input-field col l4 s12">
+                  <input type='text' id='0' name="0" required>
+                  <label for="0">Nome</label>
                 </div>
 
-                <div class="col l3 s12">
-                  <input name="1" placeholder="Valor" required>
+                <div class="input-field col l3 s12">
+                  <input type='text' id='1' name="1" required>
+                  <label for="1">Valor</label>
                 </div>
 
-                <div class="col l3 s12">
-                  <input name="2" placeholder="Quantidade" required>
+                <div class="input-field col l3 s12">
+                  <input type='number' id='2' name="2" required>
+                  <label for="2">Quantidade</label>
                 </div>
 
                 <div class="col l2 s12 center">
-                  <button type="submit" name="btn_add"><a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></button>
+                  <button type="submit" name="btn_add"><a class="btn-floating btn-large waves-effect waves-light light-green accent-3"><i style="color: #000000;" class="material-icons">add</i></a></button>
                 </div>
               </div>
             </form>
@@ -102,24 +109,28 @@
             <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
               <div class="row">
 
-                <div class="col l2 s12">
-                  <input id="id" name="0" placeholder="ID" required>
+                <div class="input-field col l2 s12">
+                  <input type="number" id="id" name="0" required>
+                  <label id="lbid" for="id">ID</label>
                 </div>
 
-                <div class="col l3 s12">
-                  <input id="name" name="1" placeholder="Nome" required>
+                <div class="input-field col l3 s12">
+                  <input type="text" id="name" name="1" required>
+                  <label id="lbname" for="id">Nome</label>
                 </div>
 
-                <div class="col l3 s12">
-                  <input id="value" name="2" placeholder="Valor" required>
+                <div class="input-field col l3 s12">
+                  <input type="text" id="value" name="2" required>
+                  <label id="lbvalue" for="id">Valor</label>
                 </div>
 
-                <div class="col l2 s12">
-                  <input id="quantity" name="3" placeholder="Quantidade" required>
+                <div class="input-field col l2 s12">
+                  <input type="number" id="quantity" name="3" required>
+                  <label id="lbquantity" for="id">Quantidade</label>
                 </div>
 
-                <div class="col l2 s12 center">
-                  <button type="submit" name="btn_edit"><a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">edit</i></a></button>
+                <div class="input-field col l2 s12 center">
+                  <button type="submit" name="btn_edit"><a class="btn-floating btn-large waves-effect waves-light light-green accent-3"><i style="color: #000000;" class="material-icons">done</i></a></button>
                 </div>
               </div>
             </form>
@@ -132,16 +143,22 @@
         if(isset($_POST['btn_add'])){
           echo create($_POST);
           echo read(array("","",""));
+
         }else if(isset($_POST['btn_search'])){
           echo read($_POST);
+
         }else if(isset($_POST['btn_edit'])){
-          echo update($_POST);
-          read(array($_POST['btn_edit'],"ID",""));
+          $arr = update($_POST);
+          echo $arr[0];
+          read(array($arr[1],"ID",""));
+
         }else if(isset($_POST['btn_delete'])){
           echo delet($_POST['btn_delete']);
           read(array("","",""));
+
         }else if(isset($_POST['btn_searchAll'])){
           read(array("","",""));
+
         }else{
           echo $table;
         }
