@@ -19,6 +19,20 @@
   background: #ff4d4d;
 }
 
+html, body, .content{
+  height: 100%;
+  width: 100%;
+}
+
+.content{
+  height: 70%;
+}
+
+.content2{
+  width: 50%;
+  margin: 0 auto;
+}
+
 button {
   background: transparent;
   border: none !important;
@@ -33,6 +47,22 @@ button:active{
 
 table{
   margin-bottom: 50px;
+}
+
+.bt{
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.margin{
+  margin-top: 50px;
+}
+
+.title2{
+  font-family: lemon;
+  font-size: 40px;
+  margin: 0px;
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {

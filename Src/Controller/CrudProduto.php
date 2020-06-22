@@ -14,6 +14,8 @@
   function create($arr){
     array_pop($arr);
     $cArr = clear($arr);
+    $cArr[1] = explode(" ",$cArr[1]);
+    $cArr[1] = $cArr[1][1];
     $instance = new \CrudProduto();
     return $instance->create($cArr);
   }
@@ -44,7 +46,7 @@
 
     $server = $_SERVER['PHP_SELF'];
     if($tipo != ""){
-      echo $arr[0] . " Produto(s) Encontrado(s) Para: " . $term . " / No Tipo: " . $tipo;
+      echo $arr[0] . " Produto(s) Encontrado(s) Para o " . $tipo . ": " . $term;
     }else{
       echo "Exibindo Tudo.";
     }
@@ -55,7 +57,7 @@
       $nome = $values['nome'];
       $valor = $values['valor'];
       $qtd = $values['quantidade'];
-      echo "<tr><td>$id</td><td id='$id nome' value='$nome'>$nome</td><td id='$id valor' value='$valor'>$valor</td><td id='$id qtd' value='$qtd'>$qtd</td>";
+      echo "<tr><td>$id</td><td id='$id nome' value='$nome'>$nome</td><td id='$id valor' value='$valor'>R$:$valor</td><td id='$id qtd' value='$qtd'>$qtd</td>";
 
       echo "<td><button type='button' onclick='edit(this.value);' value='$id' name='btn_edit1'><a
       class='btn-floating btn-small waves-effect waves-light orange'>
@@ -73,8 +75,7 @@
   function update($arr){
     array_pop($arr);
     $cArr = clear($arr);
-    $cArr[] = $cArr[0];
-    array_shift($cArr);
+    $cArr[] = array_shift($cArr);
     $instance = new \CrudProduto();
     return $instance->update($cArr);
   }

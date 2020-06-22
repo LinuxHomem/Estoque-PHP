@@ -41,11 +41,8 @@
         $count++;
       }
 
-      if($stmt->execute() === false){
-        return "Falha ao Editar o Produto. <br>";
-      }else{
-        return array("Produto Editado. <br>",$arr[3]);
-      }
+      $stmt->execute();
+      return array("Produto Editado. <br>",$arr[3]);
     }
 
     public function delete($id){
@@ -53,8 +50,12 @@
       $stmt = Conexao::getConn()->prepare($sql);
 
       $stmt->bindValue(1,$id);
-      $stmt->execute();
-      $ret = "Item com o id '$id' foi deletado! <br>";
-      return $ret;
+
+      if($stmt->execute() === false){
+        return "Falha ao Deletar o Produto. <br>";
+      }else{
+        $ret = "Item com o id '$id' foi deletado! <br>";
+        return $ret;
+      }
     }
   }

@@ -1,7 +1,6 @@
-//<![CDATA[
-  window.onload=function(){
-    $(document).ready(function() {
-      $('select').formSelect();
-      $('.collapsible').collapsible();
-    });
-  }//]]>
+window.onload=function(){
+  $(document).ready(function() {
+    M.AutoInit();
+    $(".mask").maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: true});
+  });
+}
