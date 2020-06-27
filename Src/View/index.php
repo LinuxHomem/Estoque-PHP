@@ -8,8 +8,6 @@
 
     <!-- Materialize Css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!--Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Master Personal Css -->
     <link rel="stylesheet" href="Master.css">
   </head>

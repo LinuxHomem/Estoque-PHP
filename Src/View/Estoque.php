@@ -166,7 +166,7 @@
       <?php
         $table = "<table><thead><tr><th>ID</th><th>Nome</th><th>Valor</th><th>Quantidade</th></tr></thead></table>";
         if(isset($_POST['btn_add'])){
-          echo create($_POST);
+          print_r(create($_POST));
           echo read(array("","",""));
 
         }else if(isset($_POST['btn_search'])){
@@ -174,8 +174,13 @@
 
         }else if(isset($_POST['btn_edit'])){
           $arr = update($_POST);
-          echo $arr[0];
-          read(array($arr[1],"ID",""));
+          if($arr === false){
+            echo "Não foi possível editar o produto.";
+            echo read(array("","",""));
+          }else{
+            echo "Produto Editado. <br>";
+            read(array($arr[1],"ID",""));
+          }
 
         }else if(isset($_POST['btn_delete'])){
           echo delet($_POST['btn_delete']);

@@ -1,5 +1,37 @@
 <?php
   class CrudProduto{
+    // log section
+    public static function newLog($id,$op){
+      $arr = new CrudProduto;
+      $arr = $arr->read(array("",""));
+
+      $max = 0;
+      $i = 0;
+      foreach ($arr[1] as $value) {
+        $j = $arr[1][$i]["valor"];
+        $j = str_replace(".","",$j);
+        $j = str_replace(",",".",$j);
+        $max += $j;
+        $i++;
+      }
+
+      $qtd = $arr[0];
+      $date = date("Y-m-d");
+
+      // $sql = "INSERT INTO `loja`.`log` VALUES (NULL,$date,$max,$qtd,$op,$id)";
+      // $stmt = Conexao::getConn()->prepare($sql);
+      //
+      // if($stmt->execute() === false){
+      //   echo "Falha ao Gravar Log. <br>";
+      // }
+      echo $date . "<br>";
+      echo $max . "<br>";
+      echo $qtd . "<br>";
+      echo $op . "<br>";
+      echo $id . "<br>";
+    }
+    // log section
+
     // create section
     public function create($arr){
       $sql = "INSERT INTO `loja`.`produto` VALUES (NULL,?,?,?)";
@@ -14,6 +46,7 @@
       if($stmt->execute() === false){
         return "Falha ao Cadastrar o Produto. <br>";
       }else{
+        self::newLog("id","create");
         return "Produto Cadastrado. <br>";
       }
     }
@@ -26,8 +59,11 @@
 
       $stmt->bindValue(1,$arr[0]);
 
-      $stmt->execute();
-      return array($stmt->rowCount(),$stmt->fetchAll(\PDO::FETCH_ASSOC));
+      if($stmt->execute() === false){
+        return false;
+      }else{
+        return array($stmt->rowCount(),$stmt->fetchAll(\PDO::FETCH_ASSOC));
+      }
     }
     // read section
 
@@ -41,8 +77,11 @@
         $count++;
       }
 
-      $stmt->execute();
-      return array("Produto Editado. <br>",$arr[3]);
+      if($stmt->execute() === false){
+        return false;
+      }else{
+        return $arr[3];
+      }
     }
 
     public function delete($id){

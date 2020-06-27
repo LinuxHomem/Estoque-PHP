@@ -44,30 +44,34 @@
     $instance = new \CrudProduto();
     $arr = $instance->read($cArr);
 
-    $server = $_SERVER['PHP_SELF'];
-    if($tipo != ""){
-      echo $arr[0] . " Produto(s) Encontrado(s) Para o " . $tipo . ": " . $term;
+    if($arr === false){
+      echo "Não foi possível fazer a leitura.";
     }else{
-      echo "Exibindo Tudo.";
-    }
-    echo "<form action='$server' method='post'><table class='striped centered'><thead><tr><th>ID</th><th>Nome</th><th>Valor</th><th>Quantidade</th></tr></thead><tbody>";
-    for($i=0;$i < $arr[0];$i++){
-      $values = $arr[1][$i];
-      $id = $values['id'];
-      $nome = $values['nome'];
-      $valor = $values['valor'];
-      $qtd = $values['quantidade'];
-      echo "<tr><td>$id</td><td id='$id nome' value='$nome'>$nome</td><td id='$id valor' value='$valor'>R$:$valor</td><td id='$id qtd' value='$qtd'>$qtd</td>";
+      $server = $_SERVER['PHP_SELF'];
+      if($tipo != ""){
+        echo $arr[0] . " Produto(s) Encontrado(s) Para o " . $tipo . ": " . $term;
+      }else{
+        echo "Exibindo Tudo.";
+      }
+      echo "<form action='$server' method='post'><table class='striped centered'><thead><tr><th>ID</th><th>Nome</th><th>Valor</th><th>Quantidade</th></tr></thead><tbody>";
+      for($i=0;$i < $arr[0];$i++){
+        $values = $arr[1][$i];
+        $id = $values['id'];
+        $nome = $values['nome'];
+        $valor = $values['valor'];
+        $qtd = $values['quantidade'];
+        echo "<tr><td>$id</td><td id='$id nome' value='$nome'>$nome</td><td id='$id valor' value='$valor'>R$:$valor</td><td id='$id qtd' value='$qtd'>$qtd</td>";
 
-      echo "<td><button type='button' onclick='edit(this.value);' value='$id' name='btn_edit1'><a
-      class='btn-floating btn-small waves-effect waves-light orange'>
-      <i class='material-icons'>edit</i></a></button>";
+        echo "<td><button type='button' onclick='edit(this.value);' value='$id' name='btn_edit1'><a
+        class='btn-floating btn-small waves-effect waves-light orange'>
+        <i class='material-icons'>edit</i></a></button>";
 
-      echo "<button type='submit' value='$id' name='btn_delete'><a
-      class='btn-floating btn-small waves-effect waves-light red'>
-      <i class='material-icons'>delete</i></a></button></td></tr>";
+        echo "<button type='submit' value='$id' name='btn_delete'><a
+        class='btn-floating btn-small waves-effect waves-light red'>
+        <i class='material-icons'>delete</i></a></button></td></tr>";
+      }
+      echo "</tbody></table></form>";
     }
-    echo "</tbody></table></form>";
   }
   // read section
 
@@ -77,7 +81,12 @@
     $cArr = clear($arr);
     $cArr[] = array_shift($cArr);
     $instance = new \CrudProduto();
-    return $instance->update($cArr);
+    $ret = $instance->update($cArr);
+    if($ret === false){
+      return false;
+    }else{
+      return $ret;
+    }
   }
   // update section
 

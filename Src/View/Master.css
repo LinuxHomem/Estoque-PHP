@@ -1,7 +1,4 @@
-@font-face {
-  font-family: "lemon";
-  src: url("../../../Fonts/LemonMilk.otf");
-}
+@import url(//db.onlinewebfonts.com/c/67137b5f6928edc941186baaab5a664b?family=Lemon/Milk);
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -59,7 +56,7 @@ table{
 }
 
 .title2{
-  font-family: lemon;
+  font-family: Lemon Milk;
   font-size: 40px;
   margin: 0px;
   text-align: center;
@@ -67,7 +64,7 @@ table{
 
 @media only screen and (max-width: 600px) {
   .title{
-    font-family: lemon;
+    font-family: Lemon Milk;
     font-size: 60px;
     margin: 0px;
     text-align: center;
@@ -76,7 +73,7 @@ table{
 
 @media only screen and (min-width: 601px) {
   .title{
-    font-family: lemon;
+    font-family: Lemon Milk;
     font-size: 100px;
     margin: 0px;
     text-align: center;
