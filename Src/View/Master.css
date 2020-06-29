@@ -46,11 +46,6 @@ table{
   margin-bottom: 50px;
 }
 
-.bt{
-  font-size: 20px;
-  margin-top: 20px;
-}
-
 .margin{
   margin-top: 50px;
 }
@@ -62,7 +57,13 @@ table{
   text-align: center;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px){
+  .bt{
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
   .title{
     font-family: Lemon Milk;
     font-size: 60px;
@@ -71,7 +72,12 @@ table{
   }
 }
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 601px){
+  .bt{
+    font-size: 30px;
+    margin-top: 20px;
+  }
+
   .title{
     font-family: Lemon Milk;
     font-size: 100px;

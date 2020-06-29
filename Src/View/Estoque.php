@@ -13,10 +13,11 @@
     <!-- Master Personal Css -->
     <link rel="stylesheet" href="Master.css">
 
-    <!-- Importar Módulo de Conexão e Crud de Produtos -->
+    <!-- Importar Módulo de Conexão, Crud de Produtos e Crud de Logs -->
     <?php
       require '../Model/Conn.php';
       require '../Model/CrudProduto.php';
+      require '../Model/CrudLog.php';
       require '../Controller/CrudProduto.php';
     ?>
   </head>
@@ -62,7 +63,7 @@
 
               <div class="row">
                 <div class="col s6 center">
-                  <button class="btn bt waves-effect waves-light blue" type="submit" name="btn_search">
+                  <button class="btn-large bt waves-effect waves-light blue" type="submit" name="btn_search">
                     Pesquisar
                   </button>
                 </div>
@@ -70,7 +71,7 @@
 
               <div class="col s6 center">
                 <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-                  <button class="btn bt waves-effect waves-light blue" type="submit" name="btn_searchAll">
+                  <button class="btn-large bt waves-effect waves-light blue" type="submit" name="btn_searchAll">
                     Exibir Tudo
                   </button>
                 </form>
@@ -179,7 +180,7 @@
             echo read(array("","",""));
           }else{
             echo "Produto Editado. <br>";
-            read(array($arr[1],"ID",""));
+            read(array($arr[0],"ID",""));
           }
 
         }else if(isset($_POST['btn_delete'])){

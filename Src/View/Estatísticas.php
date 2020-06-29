@@ -13,20 +13,35 @@
     <!-- Master Personal Css -->
     <link rel="stylesheet" href="Master.css">
 
-    <!-- Importar Módulo de Conexão e Crud de Produtos -->
+    <!-- Importar Módulo de Conexão, Crud de Produtos e Crud de Logs -->
     <?php
       require '../Model/Conn.php';
       require '../Model/CrudProduto.php';
+      require '../Model/CrudLog.php';
       require '../Controller/CrudProduto.php';
     ?>
   </head>
   <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down">
+          <li><a style="font-size:20px;" href="Estoque.php"><i class="material-icons left">arrow_back_ios</i>Voltar</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li class="margin"><p class="title2">ESTOQUE</p></li>
+      <li><hr></li>
+      <li class="margin"><a style="font-size:20px;" href="Estoque.php"><i class="material-icons left">arrow_back_ios</i>Voltar</a></li>
+    </ul>
+
     <?php
-    $instance = new \CrudProduto();
-    $arr = $instance::newLog("option","id");
-
+      $instance = new \CrudProduto;
+      $i = $instance->read(array("",""));
+      print_r($i);
     ?>
-
 
     <!-- Jquery Js -->
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script><style type="text/css"></style>
