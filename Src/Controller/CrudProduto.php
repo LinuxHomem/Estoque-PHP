@@ -80,6 +80,8 @@
     array_pop($arr);
     $cArr = clear($arr);
     $cArr[] = array_shift($cArr);
+    $cArr[1] = explode(" ",$cArr[1]);
+    $cArr[1] = $cArr[1][1];
     $instance = new \CrudProduto();
     $ret = $instance->update($cArr);
     if($ret === false){
