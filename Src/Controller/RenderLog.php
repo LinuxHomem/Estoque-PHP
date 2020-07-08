@@ -6,9 +6,9 @@
   foreach ($arr as $value) {
     $valor_max = round($value['valor_max'],2);
     $valor_max = explode(".",$valor_max);
-    if(isset($valor_max[1]) and strlen($valor_max[0]) > 3){
-        $valor_max[0] = str_split($valor_max[0], 3);
-        $valor_max[0] = implode(".",$valor_max[0]);
+    if(strlen($valor_max[0]) > 3){
+      $valor_max[0] = str_split(strrev($valor_max[0]), 3);
+      $valor_max[0] = strrev(implode(".",$valor_max[0]));
     }
     $valor_max = implode(",",$valor_max);
 
