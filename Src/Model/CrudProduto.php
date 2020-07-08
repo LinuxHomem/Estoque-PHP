@@ -17,7 +17,7 @@
         $id = self::read(array("",""));
 
         $instance = new \CrudLog;
-        $instance->newLog(end($id[1])["id"],"create");
+        $instance->create(end($id[1])["id"],"create");
 
         return "Produto Cadastrado. <br>";
       }
@@ -53,7 +53,7 @@
         return false;
       }else{
         $instance = new \CrudLog;
-        $instance->newLog($arr[3],"update");
+        $instance->create($arr[3],"update");
 
         return $arr[3];
       }
@@ -69,7 +69,7 @@
         return "Falha ao Deletar o Produto. <br>";
       }else{
         $instance = new \CrudLog;
-        $instance->newLog($id,"delete");
+        $instance->create($id,"delete");
 
         $ret = "Item com o id '$id' foi deletado! <br>";
         return $ret;

@@ -8,17 +8,36 @@
 
     <!-- Materialize Css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Master Personal Css -->
     <link rel="stylesheet" href="Master.css">
   </head>
   <body>
-    <nav></nav>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down">
+          <li><a style="font-size:20px;" href="Estoque.php"><i class="material-icons left">storefront</i>Estoque</a></li>
+          <li><a style="font-size:20px;" href="Estatísticas.php"><i class="material-icons left">timeline</i>Estatísticas</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li class="margin"><p class="title2">LOJA</p></li>
+      <li class="item"><a style="font-size:20px;" href="Estoque.php"><i class="material-icons left">storefront</i>Estoque</a></li>
+      <li class="item"><a style="font-size:20px;" href="Estatísticas.php"><i class="material-icons left">timeline</i>Estatísticas</a></li>
+    </ul>
 
     <div class="container valign-wrapper content">
       <div class="content2">
         <center>
           <p class="title">LOJA</p>
-          <a href="Estoque.php" class="waves-effect waves-light btn-large margin red lighten-2">Acessar Estoque</a>
+          <ul>
+            <li><a style="margin-top:30px;margin-bottom:5px;" href="Estoque.php" class="waves-effect waves-light btn-large red lighten-2">Acessar Estoque</a></li>
+            <li><a href="Estoque.php" class="waves-effect waves-light btn-large red lighten-2">Estatísticas</a></li>
+          </ul>
         </center>
       <div>
     </div>
@@ -27,5 +46,7 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script><style type="text/css"></style>
     <!-- Materialize JS -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <!-- Init Materialize JS -->
+    <script type="text/javascript" src="../Controller/Init.js"></script>
   </body>
 </html>

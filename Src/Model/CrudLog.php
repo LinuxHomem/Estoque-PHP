@@ -1,4 +1,5 @@
 <?php
+  date_default_timezone_set('America/Sao_Paulo');
   class CrudLog{
     // create section
     public function create($id,$op){
@@ -34,4 +35,10 @@
       }
     }
     // create section
+    public function read(){
+      $sql = "SELECT * FROM `loja`.`log` ORDER BY id";
+      $stmt = Conexao::getConn()->prepare($sql);
+      $stmt->execute();
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
   }

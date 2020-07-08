@@ -10,48 +10,85 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Chartist Css -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
     <!-- Master Personal Css -->
     <link rel="stylesheet" href="Master.css">
 
-    <!-- Importar Módulo de Conexão, Crud de Produtos e Crud de Logs -->
     <?php
+    // Importar Módulo de Conexão e Crud de Logs
       require '../Model/Conn.php';
-      require '../Model/CrudProduto.php';
       require '../Model/CrudLog.php';
-      require '../Controller/CrudProduto.php';
+      require '../Controller/Grafico.php';
     ?>
   </head>
   <body>
     <nav>
       <div class="nav-wrapper">
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down">
           <li><a style="font-size:20px;" href="Estoque.php"><i class="material-icons left">arrow_back_ios</i>Voltar</a></li>
+          <li><a style="font-size:20px;" href="Estoque.php"><i class="material-icons left">storefront</i>Estoque</a></li>
         </ul>
       </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-      <li class="margin"><p class="title2">ESTOQUE</p></li>
-      <li><hr></li>
-      <li class="margin"><a style="font-size:20px;" href="Estoque.php"><i class="material-icons left">arrow_back_ios</i>Voltar</a></li>
+      <li class="margin"><p class="title2">Estatísticas</p></li>
+      <li class="item"><a style="font-size:20px;" href="index.php"><i class="material-icons left">arrow_back_ios</i>Início</a></li>
+      <li class="item"><a style="font-size:20px;" href="Estoque.php"><i class="material-icons left">storefront</i>Estoque</a></li>
     </ul>
 
-    <?php
-      $instance = new \CrudProduto;
-      $i = $instance->read(array("",""));
-      print_r($i);
-    ?>
+    <div class="container s6" style="height:55vh;width:80vw">
+      <p class="title3">Estatísticas</p>
 
-    <!-- Jquery Js -->
+      <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+        <div class="row">
+          <div class="col m11 s8">
+            <select required name="tipo">
+              <option value="">Estatística...</option>
+              <option value="1">Valor Total em Estoque</option>
+              <option value="2">Total de Produtos em Estoque</option>
+              <option value="3">Entradas</option>
+              <option value="4">Saídas</option>
+            </select>
+          </div>
+
+          <div class="col m1 s4">
+            <button style="margin-top:10px" class="btn waves-effect waves-light red lighten-2" type="submit" name="btn_exibir">
+              Exibir
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <p id="lb"></p>
+      <div class="ct-chart ct-perfect-fourth" style="height:100%;width:100%"></div>
+
+      <!-- Chartist JS-->
+      <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+      <?php
+        if(isset($_POST["btn_exibir"])){
+          if($_POST["tipo"] == "1"){
+            graph1();
+          }else if($_POST["tipo"] == "2"){
+            graph2();
+          }else if($_POST["tipo"] == "3"){
+            graph3();
+          }else if($_POST["tipo"] == "4"){
+            graph4();
+          }
+        }else{
+          graph1();
+        }
+      ?>
+    </div>
+
+    <!-- Jquery JS -->
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script><style type="text/css"></style>
     <!-- Materialize JS -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <!-- Jquery Mask JS -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
     <!-- Init Materialize JS -->
     <script type="text/javascript" src="../Controller/Init.js"></script>
-    <!-- Collap Button -->
-    <script type="text/javascript" src="../Controller/Collap.js"></script>
   </body>
 </html>
