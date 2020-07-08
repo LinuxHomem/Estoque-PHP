@@ -50,7 +50,7 @@
             Ver Logs
             <span class="badge"></span>
           </div>
-          <div class="collapsible-body collap">
+          <div style="padding: 0px" class="collapsible-body collap">
             <?php require '../Controller/RenderLog.php'; ?>
           </div>
         </li>
