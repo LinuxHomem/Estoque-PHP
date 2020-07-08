@@ -25,7 +25,7 @@ html, body, .content{
 }
 
 .content{
-  height: 75vh;
+  height: 80vh;
 }
 
 .content2{
@@ -84,6 +84,12 @@ table{
     padding-right: 10px;
   }
 
+  .bt2{
+    font-size: 20px;
+    margin-top:30px;
+    margin-bottom:5px;
+  }
+
   .title{
     font-family: Lemon Milk;
     font-size: 60px;
@@ -119,6 +125,12 @@ table{
     margin-top: 20px;
   }
 
+  .bt2{
+    font-size: 30px;
+    margin-top:30px;
+    margin-bottom:5px;
+  }
+
   .title{
     font-family: Lemon Milk;
     font-size: 100px;
@@ -152,6 +164,12 @@ table{
   .bt{
     font-size: 30px;
     margin-top: 20px;
+  }
+
+  .bt2{
+    font-size: 30px;
+    margin-top:30px;
+    margin-bottom:5px;
   }
 
   .title{
