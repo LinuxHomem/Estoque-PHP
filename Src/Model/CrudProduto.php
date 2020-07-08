@@ -5,10 +5,10 @@
       $sql = "INSERT INTO `loja`.`produto` VALUES (NULL,?,?,?)";
       $stmt = Conexao::getConn()->prepare($sql);
 
-      $count = 1;
+      $i = 1;
       foreach ($arr as $value) {
-        $stmt->bindValue($count,$value);
-        $count++;
+        $stmt->bindValue($i,$value);
+        $i++;
       }
 
       if($stmt->execute() === false){
@@ -39,14 +39,15 @@
     }
     // read section
 
+    // update section
     public function update($arr){
       $sql = "UPDATE `loja`.`produto` SET nome = ?, valor = ?, quantidade = ? WHERE id = ?";
       $stmt = Conexao::getConn()->prepare($sql);
 
-      $count = 1;
+      $i = 1;
       foreach ($arr as $value) {
-        $stmt->bindValue($count,$value);
-        $count++;
+        $stmt->bindValue($i,$value);
+        $i++;
       }
 
       if($stmt->execute() === false){
@@ -58,7 +59,9 @@
         return $arr[3];
       }
     }
+    // update section
 
+    // delete section
     public function delete($id){
       $sql = "DELETE FROM `loja` . `produto` WHERE id = ?";
       $stmt = Conexao::getConn()->prepare($sql);
@@ -75,4 +78,19 @@
         return $ret;
       }
     }
+    // delete section
+
+    // reset id section
+    public function resetId(){
+      function sql($sql){
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+      }
+      $sql = "ALTER TABLE `loja`.`produto` DROP `id`";
+      sql($sql);
+
+      $sql = "ALTER TABLE `loja`.`produto` ADD `id` INT(255) NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`id`)";
+      sql($sql);
+    }
+    // reset id section
   }

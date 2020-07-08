@@ -73,7 +73,11 @@ table{
   border-top: solid 1px;
 }
 
-@media only screen and (max-width: 600px){
+.inav{
+  font-size: 20px !important;
+}
+
+@media only screen and (max-width: 649px){
   .bt{
     margin-top: 20px;
     padding-left: 10px;
@@ -93,9 +97,23 @@ table{
     margin: 0px;
     text-align: center;
   }
+
+  .title4{
+    font-family: Lemon Milk;
+    font-size: 40px;
+    margin: 0px;
+    text-align: center;
+  }
+
+  .title5{
+    font-family: Lemon Milk;
+    font-size: 30px;
+    margin: 0px;
+    text-align: center;
+  }
 }
 
-@media only screen and (min-width: 601px){
+@media only screen and (min-width: 800px){
   .bt{
     font-size: 30px;
     margin-top: 20px;
@@ -111,6 +129,55 @@ table{
   .title3{
     font-family: Lemon Milk;
     font-size: 90px;
+    margin: 0px;
+    text-align: center;
+  }
+
+  .title4{
+    font-family: Lemon Milk;
+    font-size: 85px;
+    margin: 0px;
+    text-align: center;
+  }
+
+  .title5{
+    font-family: Lemon Milk;
+    font-size: 30px;
+    margin: 0px;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 650px) and (max-width: 799px){
+  .bt{
+    font-size: 30px;
+    margin-top: 20px;
+  }
+
+  .title{
+    font-family: Lemon Milk;
+    font-size: 100px;
+    margin: 0px;
+    text-align: center;
+  }
+
+  .title3{
+    font-family: Lemon Milk;
+    font-size: 80px;
+    margin: 0px;
+    text-align: center;
+  }
+
+  .title4{
+    font-family: Lemon Milk;
+    font-size: 70px;
+    margin: 0px;
+    text-align: center;
+  }
+
+  .title5{
+    font-family: Lemon Milk;
+    font-size: 30px;
     margin: 0px;
     text-align: center;
   }

@@ -26,16 +26,18 @@
       <div class="nav-wrapper">
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down">
-          <li><a style="font-size:20px;" href="index.php"><i class="material-icons left">arrow_back_ios</i>Voltar</a></li>
-          <li><a style="font-size:20px;" href="Estatísticas.php"><i class="material-icons left">timeline</i>Estatísticas</a></li>
+          <li><a class="inav" href="index.php"><i class="material-icons left">arrow_back_ios</i>Início</a></li>
+          <li><a class="inav" href="Estatísticas.php"><i class="material-icons left">timeline</i>Estatísticas</a></li>
+          <li><a class="inav" href="Configurações.php"><i class="material-icons left">settings</i>Configurações</a></li>
         </ul>
       </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
       <li class="margin"><p class="title2">ESTOQUE</p></li>
-      <li class="item"><a style="font-size:20px;" href="index.php"><i class="material-icons left">arrow_back_ios</i>Início</a></li>
-      <li class="item"><a style="font-size:20px;" href="Estatísticas.php"><i class="material-icons left">timeline</i>Estatísticas</a></li>
+      <li class="item"><a class="inav" href="index.php"><i class="material-icons left">arrow_back_ios</i>Início</a></li>
+      <li class="item"><a class="inav" href="Estatísticas.php"><i class="material-icons left">timeline</i>Estatísticas</a></li>
+      <li class="item"><a class="inav" href="Configurações.php"><i class="material-icons left">settings</i>Configurações</a></li>
     </ul>
 
     <p class="title">ESTOQUE</p>

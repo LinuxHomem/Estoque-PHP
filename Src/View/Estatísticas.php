@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Estatísticas</title>
-    <link rel="shortcut icon" href="../../Icons/estoque-favicon.png">
+    <link rel="shortcut icon" href="../../Icons/estatisticas-favicon.png">
 
     <!-- Materialize Css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -27,16 +27,18 @@
       <div class="nav-wrapper">
         <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down">
-          <li><a style="font-size:20px;" href="Estoque.php"><i class="material-icons left">arrow_back_ios</i>Voltar</a></li>
-          <li><a style="font-size:20px;" href="Estoque.php"><i class="material-icons left">storefront</i>Estoque</a></li>
+          <li><a class="inav" href="Estoque.php"><i class="material-icons left">arrow_back_ios</i>Voltar</a></li>
+          <li><a class="inav" href="Estoque.php"><i class="material-icons left">storefront</i>Estoque</a></li>
+          <li><a class="inav" href="Configurações.php"><i class="material-icons left">settings</i>Configurações</a></li>
         </ul>
       </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
       <li class="margin"><p class="title2">Estatísticas</p></li>
-      <li class="item"><a style="font-size:20px;" href="index.php"><i class="material-icons left">arrow_back_ios</i>Início</a></li>
-      <li class="item"><a style="font-size:20px;" href="Estoque.php"><i class="material-icons left">storefront</i>Estoque</a></li>
+      <li class="item"><a class="inav" href="index.php"><i class="material-icons left">arrow_back_ios</i>Início</a></li>
+      <li class="item"><a class="inav" href="Estoque.php"><i class="material-icons left">storefront</i>Estoque</a></li>
+      <li class="item"><a class="inav" href="Configurações.php"><i class="material-icons left">settings</i>Configurações</a></li>
     </ul>
 
     <div class="container s6" style="height:55vh;width:80vw">

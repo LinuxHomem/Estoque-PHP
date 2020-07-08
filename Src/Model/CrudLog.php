@@ -31,14 +31,24 @@
 
       if($stmt->execute() === false){
         echo "Falha ao Gravar Log. <br>";
-        print_r($stmt->errorInfo());
       }
     }
     // create section
+
+    // read section
     public function read(){
       $sql = "SELECT * FROM `loja`.`log` ORDER BY id";
       $stmt = Conexao::getConn()->prepare($sql);
       $stmt->execute();
       return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+    // read section
+
+    // delete section
+    public function delete(){
+      $sql = "TRUNCATE TABLE `loja`.`log`";
+      $stmt = Conexao::getConn()->prepare($sql);
+      $stmt->execute();
+    }
+    // delete section
   }

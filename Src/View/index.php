@@ -18,8 +18,9 @@
       <div class="nav-wrapper">
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down">
-          <li><a style="font-size:20px;" href="Estoque.php"><i class="material-icons left">storefront</i>Estoque</a></li>
-          <li><a style="font-size:20px;" href="Estatísticas.php"><i class="material-icons left">timeline</i>Estatísticas</a></li>
+          <li><a class="inav" href="Estoque.php"><i class="material-icons left">storefront</i>Estoque</a></li>
+          <li><a class="inav" href="Estatísticas.php"><i class="material-icons left">timeline</i>Estatísticas</a></li>
+          <li><a class="inav" href="Configurações.php"><i class="material-icons left">settings</i>Configurações</a></li>
         </ul>
       </div>
     </nav>
@@ -28,6 +29,7 @@
       <li class="margin"><p class="title2">LOJA</p></li>
       <li class="item"><a style="font-size:20px;" href="Estoque.php"><i class="material-icons left">storefront</i>Estoque</a></li>
       <li class="item"><a style="font-size:20px;" href="Estatísticas.php"><i class="material-icons left">timeline</i>Estatísticas</a></li>
+      <li class="item"><a style="font-size:20px;" href="Configurações.php"><i class="material-icons left">settings</i>Configurações</a></li>
     </ul>
 
     <div class="container valign-wrapper content">
@@ -36,7 +38,8 @@
           <p class="title">LOJA</p>
           <ul>
             <li><a style="margin-top:30px;margin-bottom:5px;" href="Estoque.php" class="waves-effect waves-light btn-large red lighten-2">Acessar Estoque</a></li>
-            <li><a href="Estoque.php" class="waves-effect waves-light btn-large red lighten-2">Estatísticas</a></li>
+            <li><a style="margin-bottom:5px;" href="Estoque.php" class="waves-effect waves-light btn-large red lighten-2">Estatísticas</a></li>
+            <li><a href="Estoque.php" class="waves-effect waves-light btn-large red lighten-2">Configurações</a></li>
           </ul>
         </center>
       <div>
